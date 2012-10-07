@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+<dss:SignRequest 
+		RequestID="I9e54e5e59e9724683b2379f846ec0f98" 
+		xmlns:dss="urn:oasis:names:tc:dss:1.0:core:schema"
+		Profile="urn:oasis:names:tc:dss:1.0:profiles:timestamping">
+	<dss:OptionalInputs>
+		<dss:KeySelector>
+					<!--Netfocus TSA certificate-->
+                    <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                        <ds:X509Data>
+                            <ds:X509Certificate>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</ds:X509Certificate>
+                        </ds:X509Data>
+                    </ds:KeyInfo>
+                </dss:KeySelector>
+			<dss:SignatureType>oasis:names:tc:dss:1.0:core:schema:XMLTimeStampToken</dss:SignatureType>
+		</dss:OptionalInputs>
+		<dss:InputDocuments>
+               <dss:DocumentHash ID="Doc">
+                    <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"/>
+                    <ds:DigestValue xmlns:ds="http://www.w3.org/2000/09/xmldsig#">DIGEST_TO_TIMESTAMP</ds:DigestValue>
+                </dss:DocumentHash>
+            </dss:InputDocuments>
+	</dss:SignRequest>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<TITLE> Test Eina Web de Signatura-e - exemple 1 </TITLE>
+<META NAME="Author" CONTENT="Oscar Burgos; Suport tècnic CATCert">
+<META NAME="Description" CONTENT="Pàgina de Test de l'Eina Web de Signatura-e">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+function onSignOK(signature) {
+	alert('Signatura generada correctament:\n' + signature);
+}
+function onMultiSignOK(signature) {
+
+}
+function onSignCancel() {
+	alert('Procés cancel·lat per l\'usuari');
+}
+function onSignError(msg) {
+	alert('Error durant la generació de la signatura: \n' + msg);
+}
+function onSignLoad() {
+	alert('Applet de signatura carregat correctament');
+}
+function onLoadError(msg) {
+	alert('Error durant la càrrega de l\'applet:\n' + msg);
+}
+function setAppletParam(name,value) {
+	document.appletcatcert.set(name,value);
+}
+function sign() {
+	try{
+		document.appletcatcert.signFromJS();
+	}catch(Exception){
+		// chrome, safari i opera
+		document.appletcatcert[1].signFromJS();
+	}
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+</br>
+Signatura XAdES-BES detached.</br>
+Certificats del magatzem de Windows.</br>
+El paràmetre d'entrada és el hash precalculat del document a signar (veure codi font).</br>
+La sortida és via event Javascript. Hi ha una funció Javascript (onMultiSignOK) que s'encarrega de capturar totes les signatures</br>
+generades (en el cas de signar múltiples documents) un cop s'han generat totes.</br>
+No s'ha definit ni el color de fons ni el logo, i per tant es mostren els valors per defecte (fons blanc i logo CATCert).</br>
+L'applet es crida utilitzant un botó html que utilitzarà Javascript per invocar-lo.</br>
+</br>
+<form name="appletCATCertForm">
+	<table align="center" border="0" cellspacing="0" cellpadding="0">		
+		<tr><input type="button" name="sig_button" value="Signa" onclick="sign()"></tr>
+		<tr><td align = "center">
+			<object
+				classid = "clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+			    codebase = "http://java.sun.com/update/1.5.0/jinstall-1_5-windows-i586.cab#Version=5,0,0,5"
+			    width="0" height="0" id="appletcatcert">
+			    <param name = "code" value = "org.catcert.AppletSignatura">
+			    <param name = "archive" value = "appletCATCERTs.jar">
+			    <param name = "mayscript" value = "true">
+   				<param name = "scriptable" value = "true">
+			    <param name = "type" value = "application/x-java-applet;version=1.5">
+				<param name = "keystore_type" value = "1">
+				<param name = "signature_mode" value = "10">
+				<param name = "doc_type" value = "4">
+				<param name = "js_event" value = "true">
+				<param name = "signButtonCaption" value = "Signa">
+				<param name = "document_to_sign" value = "QUJDREVGR0hJSktMTU5PUFFSU1RVVldYWVphYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3h5ejAxMjM0NTY3ODkrLwpBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWmFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6MDEyMzQ1Njc4OSsv">
+				<param name = "show_content" value = "1">
+				<param name = "appletLogo" value = "">
+				<comment>
+				<embed
+					type = "application/x-java-applet;version=1.5"
+					code = "org.catcert.AppletSignatura" archive = "appletCATCERTs.jar"
+					scriptable = "true"
+					pluginspage = "http://java.sun.com/products/plugin/index.html#download"
+					width = "0" height = "0"
+					name = "appletcatcert"
+					mayscript = "true"
+					scriptable = "true"
+					keystore_type = "1"
+					signature_mode = "10"
+					doc_type = "4"
+					js_event = "true"
+					signButtonCaption = "Signa"
+					document_to_sign = "QUJDREVGR0hJSktMTU5PUFFSU1RVVldYWVphYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3h5ejAxMjM0NTY3ODkrLwpBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWmFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6MDEyMzQ1Njc4OSsv"
+					show_content="1"
+					appletLogo="">
+					<noembed>
+						Atenció! Estàs intentant executar un applet i el navegador no t'ho permet. Possibles raons:<br/>
+						- No està permès executar-los per la política de seguretat.<br/>
+						- Aquest navegador no disposa del Java Plug-in per poder executar applets.<br/>
+						<a href = "http://java.sun.com/products/plugin/downloads/index.html">
+						Aconsegeuix la darrera versió del Java Plug-in aquí.
+						</a>
+			        </noembed>
+				</embed>
+			    </comment>
+			</object>
+		</td></tr>
+	</table>
+</form>
+</BODY>
+</HTML>
