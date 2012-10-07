@@ -1,0 +1,12 @@
+﻿AppletCatcert DI
+================
+
+This is a modified version of the applet offered by Catcert (http://www.catcert.cat). It is based on version 2.0.0 
+which was (as far as I know) the latest version in which the source code was publicly downloadble without former request.
+
+New feaures in 2.0.0
+====================
+
+New parameter (show_content) for showing / hidding the content to sign. It is userful for end user due to now, they are 
+not completelty sure what are signing.
+It is recommended to use in conjunction with "appletLogo" set to "".
